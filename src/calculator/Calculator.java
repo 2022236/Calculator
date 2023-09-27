@@ -14,9 +14,9 @@ public class Calculator {
         
         BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
         String userInput;
-        boolean again = false;
-
-        do {
+        boolean again = false; // boolean because is a simple and clear way to control once is true or false
+        
+        do { // do-while might be the best choice to this calculator, make sure runs at least once. 
             System.out.println("What kind of operation would you like to do?");
             try {
                 System.out.println("1- Addition, 2- Subtraction, 3- Multiplication, 4- Division");
@@ -33,7 +33,7 @@ public class Calculator {
                 int num2 = Integer.parseInt(secondNum);
                 
                 int total = 0;
-                switch (choice) {
+                switch (choice) { // switch to make the code organized
                     case 1:
                         total = num1 + num2;
                         break;
@@ -59,7 +59,7 @@ public class Calculator {
             } catch (NumberFormatException e) {
                 System.out.println("Please enter a valid input.");
             }
-        } while (again);
+        } while (again); // when again gets false, loop ends
         System.out.println("Thank you!");
         sc.close();
     }  
