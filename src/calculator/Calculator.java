@@ -31,28 +31,31 @@ public class Calculator {
 
                 int num1 = Integer.parseInt(firstNum);
                 int num2 = Integer.parseInt(secondNum);
-                if (choice == 1) {
-                    int total = num1 + num2;
-                    String result = String.valueOf(total);
-                    System.out.println("The result is: " + result);
-                } else if (choice == 2) {
-                    int total = num1 - num2;
-                    String result = String.valueOf(total);
-                    System.out.println("The result is: " + result);
-                } else if (choice == 3) {
-                    int total = num1 * num2;
-                    String result = String.valueOf(total);
-                    System.out.println("The result is: " + result);
-                } else if (choice == 4) {
-                    int total = num1 / num2;
-                    String result = String.valueOf(total);
-                    System.out.println("The result is: " + result);
-                } else {
-                    System.out.println("Something went wrong.");
+                
+                int total = 0;
+                switch (choice) {
+                    case 1:
+                        total = num1 + num2;
+                        break;
+                    case 2:
+                        total = num1 - num2;
+                        break;
+                    case 3:
+                        total = num1 * num2;
+                    break;
+                    case 4:
+                        total = num1 / num2;
+                        break;
+                    default:
+                        System.out.println("Something went wrong.");
+                        break;
                 }
-                System.out.println("Do you want to perform another operation? (yes/no)");
-                userInput = sc.readLine();
-                again = userInput.equalsIgnoreCase("yes");
+            String result = String.valueOf(total);
+            System.out.println("The result is: " + result);
+            
+            System.out.println("Do you want to perform another operation? (yes/no)");
+            userInput = sc.readLine();
+            again = userInput.equalsIgnoreCase("yes");
             } catch (NumberFormatException e) {
                 System.out.println("Please enter a valid input.");
             }
