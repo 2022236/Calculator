@@ -14,14 +14,16 @@ public class Calculator {
         
         BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
         String userInput;
-       
+        boolean again = false;
+
+        do {
             System.out.println("What kind of operation would you like to do?");
-            
             try {
                 System.out.println("1- Addition, 2- Subtraction, 3- Multiplication, 4- Division");
                 userInput = sc.readLine();
 
                 int choice = Integer.parseInt(userInput);
+
                 System.out.println("Enter the first number:");
                 String firstNum = sc.readLine();
                 System.out.println("Enter the second number:");
@@ -48,9 +50,13 @@ public class Calculator {
                 } else {
                     System.out.println("Something went wrong.");
                 }
+                System.out.println("Do you want to perform another operation? (yes/no)");
+                userInput = sc.readLine();
+                again = userInput.equalsIgnoreCase("yes");
             } catch (NumberFormatException e) {
                 System.out.println("Please enter a valid input.");
             }
+        } while (again);
         System.out.println("Thank you!");
         sc.close();
     }  
